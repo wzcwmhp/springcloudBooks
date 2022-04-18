@@ -1,0 +1,10 @@
+#服务端口
+server:
+  port: 8080
+#日志等级
+logging:
+  level:
+    org:
+      springframework: INFO
+    com:
+      chapter02: DEBUG

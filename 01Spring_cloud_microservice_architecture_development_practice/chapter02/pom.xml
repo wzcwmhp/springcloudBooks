@@ -3,10 +3,72 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <!--父项目的pom-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
+    <!--本服务的groupId和artifactId-->
     <groupId>com.wzcwmhp</groupId>
     <artifactId>chapter02</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--定义打包的格式，jar,知识点-->
+    <packaging>jar</packaging>
+    <!--项目名称-->
+    <name>spring boot test</name>
+
+    <!--项目中的属性变量信息，例如版本号管理等-->
+    <properties>
+        <guava-vesion>20.0</guava-vesion>
+    </properties>
+
+    <!--依赖的库管理-->
+    <dependencies>
+        <!--spring boot web starter, web工程-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--guava提供缓存、集合等工具类-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava-vesion}</version>
+        </dependency>
+        <!--测试test依赖包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--编译打包相关标签-->
+    <build>
+        <plugins>
+            <!--编译阶段打包工具-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!--package阶段打包工具，可以打包成jar，直接运行-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+
+
 
 
 </project>
